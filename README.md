@@ -9,3 +9,5 @@ Féplafu sera disponible dans sa version web au mois d’octobre 2023 et courant
 Je réalise le projet de A à Z de la maquette au code en passant par la mise en production avec Figma et Angular.
 
 Je pense faire l'application mobile avec Flutter ou React Native.
+
+Voir http://www.chaouchi.dev/#fepalfu
