@@ -1,0 +1,19 @@
+h2{
+    font-size:3em;
+}
+
+#logo_filigrane{
+    position: absolute;
+    right:20px;
+    top:20px;
+    width:300px;
+    opacity: 0.33;
+}
+
+.screen{
+    padding-left : 100px;
+    padding-right : 100px;
+}
+app-primary-button {
+    font-size: 0.5em;
+}

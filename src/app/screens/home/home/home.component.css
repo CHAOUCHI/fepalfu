@@ -1,0 +1,16 @@
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#home__sub_title{
+    text-transform: capitalize;
+    letter-spacing: 0.61ch;
+    color:white;
+}
+
+#home__logo{
+    width: 100%;
+}

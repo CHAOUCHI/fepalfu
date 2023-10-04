@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    --green : #00E217;
+    --dark-purple : #471F79;
+    --light-purple : #D435EE;
+    height:100vh;
+    margin:0px;
+}
+*{
+    font-family: 'Aclonica', sans-serif;
+    box-sizing: border-box;
+    color:white;
+}
+.flex-row{
+    display: flex;
+    align-items: center;
+    gap:15px;
+}
+
+
+
+.screen{
+    height: 100vh;
+    padding: 40px;
+    position: relative;
+}
+
+/* Gradient Background animated------------------------*/
+.gradient-bg{
+    background: linear-gradient(261deg,var(--light-purple),#6631a8,var(--dark-purple));
+    background-size: 200% 200%;
+    animation : gradiante 7s ease infinite;
+}
+@keyframes gradiante {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}

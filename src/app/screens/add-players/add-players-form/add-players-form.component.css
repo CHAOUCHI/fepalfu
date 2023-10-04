@@ -1,0 +1,27 @@
+#player-form{
+    padding:0px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5em;
+}
+.row img{
+    width:50px;
+}
+
+#add-player-input{
+    background-color: transparent;
+    border:none;
+    color:white;
+    outline: none;
+    font-size: 2em;
+}
+
+#wrapper{
+    overflow-y: scroll;
+    height: 50vh;
+    margin-bottom: 20px;
+}

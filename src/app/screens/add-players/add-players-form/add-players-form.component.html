@@ -1,0 +1,13 @@
+<div id="wrapper">
+    <ul id="player-form">
+        <li class="row">
+            <input type="text" placeholder="Nom..." id="add-player-input" (change)="onInputChange($event)">
+            <img src="assets/add-player-icon.png" alt="add-player icone">
+        </li>
+
+        <li class="row" *ngFor="let playerName of playersNames">
+            <p>{{playerName}}</p>
+            <img src="assets/remove-player-icon.png" alt="remove-player icone">
+        </li>
+    </ul>
+</div>
