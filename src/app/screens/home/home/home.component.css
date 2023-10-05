@@ -3,12 +3,14 @@ section{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    padding:50px;
 }
 
 #home__sub_title{
     text-transform: capitalize;
     letter-spacing: 0.61ch;
     color:white;
+    font-size: 20px;
 }
 
 #home__logo{

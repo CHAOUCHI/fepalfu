@@ -14,7 +14,7 @@ export class TextInnerShadowComponent implements AfterViewInit{
   @ViewChild("text") span : any;
 
   ngAfterViewInit (): void {
-      this.span.nativeElement.style.textShadow = `0px 1px 2px ${this.color}`; //Define the color of the text content
+      this.span.nativeElement.style.textShadow = `0px 1px 0px ${this.color}`; //Define the color of the text content
       this.span.nativeElement.style.backgroundColor = this.shadowColor; //Define the color of the text inner shadow
   }
 }

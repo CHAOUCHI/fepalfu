@@ -1,8 +1,8 @@
 span{
-    background-color: #9b9b9b;
+    background-color: #9b9b9b;  /*Set inside typescript*/
     color: transparent;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
-    text-shadow: 0px 1px 2px white;
+    text-shadow: 0px 1px 0px white; /*Set inside typescript*/
 }
