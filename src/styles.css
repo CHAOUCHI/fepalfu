@@ -18,6 +18,13 @@ body{
 }
 
 
+#filigrane{
+    position: absolute;
+    right:20px;
+    top:20px;
+    width:300px;
+    opacity: 0.33;
+}
 
 .screen{
     height: 100vh;
@@ -41,4 +48,41 @@ body{
     100%{
         background-position: 0% 50%;
     }
+}
+
+.font-s{
+    font-size : 20px;
+}
+.font-m{
+    font-size:25px;
+}
+.font-l{
+    font-size: 40px;
+}
+.font-xl{
+    font-size: 55px;
+}
+
+.bounce{
+    animation: 1s ease-in 0s infinite alternate-reverse bounce;
+}
+
+@keyframes bounce {
+    0%{
+        scale : 0.95;
+    }
+    100%{
+        scale : 1.05;
+    }
+}
+.separator{
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg,transparent,rgba(255, 255, 255, 0.25),transparent);
+}
+
+.sips_value{
+    text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+               1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+    color : red;
 }

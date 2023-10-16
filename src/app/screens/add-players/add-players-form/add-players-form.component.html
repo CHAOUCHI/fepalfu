@@ -7,7 +7,7 @@
 
         <li class="row" *ngFor="let playerName of playersNames">
             <p>{{playerName}}</p>
-            <img src="assets/remove-player-icon.png" alt="remove-player icone">
+            <img src="assets/remove-player-icon.png" alt="remove-player icone" (click)="removePlayer(playerName)">
         </li>
     </ul>
 </div>

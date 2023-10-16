@@ -1,0 +1,29 @@
+section{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.dice{
+    width:300px;
+}
+
+.roll{
+    animation: 0.25s ease-in 0s infinite alternate-reverse roll;
+}
+@keyframes roll {
+    0%{
+        rotate: 0deg;
+        translate : -10px -20px;
+        filter: blur(-20px);
+
+    }
+    50%{
+        filter: blur(1px);
+    }
+    100%{
+        rotate: 360deg;
+        translate : 15px 20px;
+        filter: blur(20px);
+    }
+}

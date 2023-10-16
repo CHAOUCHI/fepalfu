@@ -4,6 +4,7 @@ import { TextInnerShadowComponent } from './text-inner-shadow/text-inner-shadow.
 import { PrimaryButtonComponent } from './primary-button/primary-button.component';
 import { LogoComponent } from './logo/logo.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { SpinningDiceComponent } from './spinning-dice/spinning-dice.component';
 
 
 
@@ -11,6 +12,7 @@ import { AppRoutingModule } from '../app-routing.module';
   declarations: [
     LogoComponent,
     PrimaryButtonComponent,
+    SpinningDiceComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { AppRoutingModule } from '../app-routing.module';
     LogoComponent,
     PrimaryButtonComponent,
     TextInnerShadowComponent,
-    AppRoutingModule
+    AppRoutingModule,
+    SpinningDiceComponent
   ]
 })
 export class CoreModule { }

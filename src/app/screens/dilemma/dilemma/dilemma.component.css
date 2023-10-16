@@ -1,0 +1,80 @@
+.screen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+}
+.grid{
+    display: grid;
+    grid-template-columns: 4.5fr 1fr 4.5fr;
+    gap:100px;
+}
+.flex_start{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.do-more-than{
+    display: flex;
+    align-items: flex-end;
+    gap : 10px;
+}
+.dice{
+    width: 40px;
+    rotate : 4deg;
+}
+.roll-dice{
+    width:100px;
+    rotate : 4deg;
+    filter: blur(0px);
+}
+.choice{
+    margin:0px;
+}
+.heading{
+    text-align: center;
+}
+.joke{
+    opacity: 0.5;
+    font-size: 18px;
+    letter-spacing: 5px;
+}
+.col_fepalfu{
+    gap:40px;
+}
+.title{
+    opacity: 0.5;
+}
+.or{
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.col_fepalfu .choice{
+    background:linear-gradient(90deg,transparent,#9e2cc1d2);
+    padding:10px;
+    padding-top:15px;
+    border-radius: 5px;
+}
+.col_felefu .choice{
+    background:linear-gradient(90deg,#481f79d3,transparent);
+
+    padding:10px;
+    padding-top:15px;
+    border-radius: 5px;
+}
+.detail_felefu{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap : 120px;
+}
+.detail_felefu *{
+    text-align: center;
+}
+
+.sips{
+    text-align: center;
+}

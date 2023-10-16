@@ -1,0 +1,10 @@
+.new-turn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+p{
+    text-align: center;
+    line-height: 90px;
+}

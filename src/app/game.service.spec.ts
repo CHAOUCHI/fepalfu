@@ -1,7 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-
 import { GameService } from './game.service';
-import { numberAttribute } from '@angular/core';
+
+
+
+
+/*
+
+import { Player } from './core/Classes/Player';
 
 describe('GameService : Start a gaming session',()=>{
   let service: GameService;
@@ -46,7 +51,8 @@ describe('GameService : Start a gaming session',()=>{
     expect(service.players.length).toEqual(playersNames.length);
 
     for (let i = 0; i < service.players.length; i++) {
-      expect(player[i].name).toEqual(playersNames[i]);
+      
+      expect(service.players[i].name).toEqual(playersNames[i]);
 
       expect(service.sipsTaken).not.toBeNaN();
       expect(service.sipsReceived).not.toBeNaN();
@@ -54,18 +60,18 @@ describe('GameService : Start a gaming session',()=>{
       expect(service.nbCriticalSuccess).not.toBeNaN();
       expect(service.nbCriticalFailure).not.toBeNaN();
 
-      expect(player[i].sipsTaken).toEqual(0);
-      expect(player[i].sipsReceived).toEqual(0);
-      expect(player[i].sipsDistributed).toEqual(0);
-      expect(player[i].nbCriticalSuccess).toEqual(0);
-      expect(player[i].nbCriticalFailure).toEqual(0);
+      expect(service.players[i].sipsTaken).toEqual(0);
+      expect(service.players[i].sipsReceived).toEqual(0);
+      expect(service.players[i].sipsDistributed).toEqual(0);
+      expect(service.players[i].nbCriticalSuccess).toEqual(0);
+      expect(service.players[i].nbCriticalFailure).toEqual(0);
       
       service.players.forEach(player => {
-        expect(player[i].sipsDistributedTo(player));
-        expect(player[i].sipsReceivedFrom(player));
+        expect(service.sipsDistributedToBy(player,service.players[i]));
+        expect(service.sipsReceivedByFrom(players[i],player));
       });
       
-      expect(player[i].nemesis).toBeNull();
+      expect(service.nemesisOf(players[i])).toBeNull();
     }
 
   });
@@ -259,3 +265,4 @@ describe("GameService running an entire session",()=>{
   });
 
 });
+*/

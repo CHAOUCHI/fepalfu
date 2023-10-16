@@ -1,0 +1,60 @@
+<section class="gradient-bg screen new-turn">
+    <span id="filigrane"><app-logo></app-logo></span>
+    <h2 class="font-l title">Tour de {{currentPlayer.name}} !</h2>
+    <div class="grid">
+
+        <div class="col_fepalfu flex_start">
+            <div class="heading">
+                <h2 class="choice font-xl">Pas faire le fou</h2>
+                <p class="joke">"Ta mère te regarde gamin..."</p>
+            </div>
+            <div>
+                <a routerLink="/dilemma-drink"><app-primary-button text="Boire."></app-primary-button></a>
+                <p class="font-xl sips"><span class="sips_value">{{sips}}</span><br> gorgées</p>
+            </div>
+        </div>
+
+        <div class="or">
+            <h3 class="font-xl bounce">OU</h3>
+        </div>
+
+        <div class="col_felefu flex_start">
+            <div class="heading">
+                <h2 class="choice font-xl">Faire le fou</h2>
+                <p class="joke">"Ta rien dans le falzare batard"</p>
+            </div>
+
+            <p class="font-m">JETER UN DÉ</p>
+
+            <app-spinning-dice [rollingSpeed]="200" [infinite]="true" class="roll-dice bounce"></app-spinning-dice>
+            
+            <p class="font-m do-more-than">ET FAIRE PLUS DE <img class="dice" src="assets/dice/white/{{probaToDrink}}.png" alt="Probability to drink"></p>
+            
+            <div class="separator"></div>
+            
+            <div class="detail_felefu">
+                <div>
+                    <p class="font-m do-more-than">👍 Plus de <img class="dice" src="assets/dice/white/{{probaToDrink}}.png" alt="Probability to drink"></p>
+                    <p class="font-m">Tu distribue<br><span class="sips_value">{{sips}}</span> gorgées</p>
+                </div>
+                <div>
+                    <p class="font-m do-more-than">💀 Moins de <img class="dice" src="assets/dice/white/{{probaToDrink}}.png" alt="Probability to drink"></p>
+
+                    <p class="font-m">Tu bois <br><span class="sips_value">{{sips*2}}</span> gorgées</p>
+                </div>
+                <!--
+
+                    <div>
+                        <h3 class="font-m">Si tu réussi</h3>
+                        <p class="font-m">👍 Tu distribue : <span class="sips_value">{{sips}}</span></p>
+                        <p class="font-s">👍 Rien à boire</p>
+                    </div>
+                    <div>
+                        <h3 class="font-m">Si tu loupe</h3>
+                        <p class="font-m">💀 Tu bois : <span class="sips_value">{{sips*2}}</span></p>
+                    </div>
+                -->
+            </div>
+        </div>
+    </div>
+</section>

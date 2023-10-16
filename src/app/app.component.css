@@ -1,0 +1,12 @@
+.go-home{
+    color:white;
+    position: absolute;
+    bottom: 10px;
+    right : 10px;
+    z-index: 2;
+    width:30px;
+}
+
+.go-home img{
+    width: 100%;
+}
