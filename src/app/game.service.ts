@@ -57,10 +57,18 @@ export class GameService {
       }
       
       openRequest.onsuccess = ()=>{
+        const db = openRequest.result;
+
+        /**
+         * Clear the sip object store
+         */
+        const transactionSip = db.transaction(this.sipObjectStoreName,"readwrite");
+        const sipStore = transactionSip.objectStore(this.sipObjectStoreName);
+        sipStore.clear();
+
         /**
          * Connect to the object store named "Players"
          */
-        const db = openRequest.result;
         const transactionCreatePlayers = db.transaction(this.playerObjectStoreName,"readwrite");
         const playerStore = transactionCreatePlayers.objectStore(this.playerObjectStoreName);
 
@@ -305,7 +313,7 @@ export class GameService {
       const probaToDrink = Math.floor(Math.random()*10%6)+1;
       this.updateGameState({
         probaToDrink,
-      })
+      });
       this.getGameState().then(gameState=>{
         if(gameState.probaToDrink === probaToDrink)
           resolve(probaToDrink);
@@ -352,17 +360,26 @@ export class GameService {
       
     })
   }
+
   /**
    * Make a player drink
    * @param sips : `number` - The value that will increment the number of sips the player has drink inside the BDD.
    * @param playerName : `string` - The name of the player that drinks.
-   * @returns A promise that resolve to the `Player` that drank
+   * @returns A promise that resolve to the `Sip` that the player drank
    */
-  public drink(sips : number,playerName : string) : Promise<Player>{
+  public drink(sips : number,playerName : string) : Promise<Sip>{
     return new Promise((resolve,reject)=>{
-
-
+      if(sips <=0){
+        reject("Argument sips should be bigger than 0");
+        return;
+      }
+      /**
+       * Get the sip store
+       */
       this.readwriteSipsObjectStore(async (sipsStore : IDBObjectStore)=>{
+        /**
+         * Add sip data to the sip store
+         */
         const addRequest = sipsStore.add(new Sip(sips,playerName));
         addRequest.onsuccess = ()=>{
           
@@ -370,7 +387,9 @@ export class GameService {
           
           getAllSipsRequest.onsuccess = ()=>{
             const allSips = getAllSipsRequest.result;
-            resolve(allSips.find((sip)=>sip.targetPlayerName === playerName));
+            const sip : Sip = allSips.find((sip : Sip)=>sip.targetPlayerName === playerName);
+            resolve(sip);
+            return;
           }
           
           getAllSipsRequest.onerror = (error)=>reject(error);
@@ -390,7 +409,74 @@ export class GameService {
    */
   public distribute(sips : number,toPlayerName : string,fromPlayerName : string ) : Promise<Player>{
     return new Promise((resolve,reject)=> {
-      throw Error("Method not impelmented");
+      if(sips <=0){
+        reject("Argument sips should be bigger than 0");
+        return;
+      }
+
+      /**
+       * Get the player store
+       */
+      this.readonlyPlayersStore(async (playerStore)=>{
+        /**
+         * Get all the player from player store
+         */
+        const getAllPlayerRequest = playerStore.getAll();
+
+        getAllPlayerRequest.onsuccess = ()=>{
+          const players = getAllPlayerRequest.result;
+
+          /**
+           * Get the target player that should receive a sip
+           */
+          const targetPlayer =  players.find((player)=>player.name === toPlayerName);
+
+          /**
+           * Get the player that should give a sip
+           */
+          const giverPlayer =  players.find((player)=>player.name === fromPlayerName);
+
+          /**
+           * Reject if the target player does not exist on the player Store
+           */
+          if(!targetPlayer){
+            reject(`No player is named ${toPlayerName}`);
+            return;
+          }
+
+          /**
+           * Reject if the giverPlayer does not exist on the player Store
+           */
+          if(!giverPlayer){
+            reject(`No player is named ${fromPlayerName}`);
+            return;
+          }
+
+          /**
+           * Get the Sip store
+           */
+          this.readwriteSipsObjectStore(async (sipsStore)=>{
+            /**
+             * Add sip data to sip store
+             */
+            const addRequest = sipsStore.add(new Sip(sips,toPlayerName,Sip.DISTRIBUTED,fromPlayerName));
+
+            addRequest.onsuccess = ()=>{
+              /**
+               * Resolve and send the player that drank
+               */
+              resolve(targetPlayer as Player);
+              return;
+            }
+
+            addRequest.onerror = (error)=>{
+              reject(error);
+              return;
+            }
+          });
+          }
+
+      }).catch(error=>reject(error));
     });
   }
 
@@ -400,7 +486,20 @@ export class GameService {
    */
   public setPlayerLuck() : Promise<number>{
     return new Promise((resolve,reject)=>{
-      throw Error("Method not impelmented");
+      const playerLuck = Math.floor(Math.random()*10%6)+1;
+      if(playerLuck < 1 || playerLuck > 6){
+        reject("Player luck should be between 1 and 6 included.");
+      }
+      this.updateGameState({
+        playerLuck
+      })
+      .then(gameState=>{
+        if(gameState.playerLuck === playerLuck)
+          resolve(gameState.playerLuck);
+        else
+          reject(`Error : playerLuck should be ${playerLuck} but is ${gameState.playerLuck} inside localStorage`);
+      })
+      .catch(error=>reject(error));
     });
   }
 
@@ -410,7 +509,10 @@ export class GameService {
    */
   public get playerLuck() : Promise<number | null >{
     return new Promise((resolve,reject)=>{
-      throw Error("Method not implemented");
+      this.getGameState()
+      .then(gameState=>{
+        resolve(gameState.playerLuck);
+      }).catch(error=>reject(error));
     });
   }
 
@@ -450,10 +552,62 @@ export class GameService {
    * - probaToDrink : `number` | `null` - The probability to drink for a player if he choose to "ferlefu", value is random between [1,6]. The value is `null` if the method setProbaToDrink have not been called
    * - playerLuck : `number` | `null` - The value of the dice the player roll to know if he drinks or not when he choose to "ferlefu", value is random between [1,6]. The value is `null` if the method setPlayerLuck have not been called.
    */
-  public nextTurn() : Promise<Response>{
-    return new Promise((resolve,reject)=>{
-      throw Error("Method not impelmented");
+  public nextTurn() : Promise<boolean>{
+    return new Promise(async (resolve,reject)=>{
+      /**
+       * Update currentPlayerIndex to the next player Id
+       */
+      const currentPlayer = await this.currentPlayer;
+      const players = await this.players;
+
+      players.forEach((player,index,players)=>{
+        if(player.id === currentPlayer.id){
+          /**
+           * Set the new player id to be the next player id 
+           * If the current player is the last player of the list the next player id is the first player id
+           */
+          const nextPlayerId = index+1 >= players.length ? players[0].id : players[index+1].id;
+
+          /**
+           * Update game state for the next turn
+           */
+          this.getGameState()
+          .then(gameState=>{
+            this.updateGameState({
+              currentPlayerId : nextPlayerId,
+              currentTurnIndex : ++gameState.currentTurnIndex,
+              sips : null,
+              probaToDrink : null,
+              playerLuck : null
+            })
+            .then(gameState=>{
+              resolve(true);
+            }).catch(error=>reject(error));
+          }).catch(error=>reject(error));
+        }
+      });
+
     });
+  }
+
+  public get players() : Promise<Array<Player>>{
+    return new Promise((resolve,reject)=>{
+      this.readonlyPlayersStore((playerStore)=>{
+        const getAllRequest = playerStore.getAll();
+
+        getAllRequest.onerror = (error)=>{
+          reject(error);
+          return;
+        }
+
+        getAllRequest.onsuccess = ()=>{
+          const players = getAllRequest.result as Array<Player>;
+          resolve(players);
+          return;
+        }
+
+      });
+    })
   }
 
 }

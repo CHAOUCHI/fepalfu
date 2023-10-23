@@ -11,7 +11,7 @@ import { DilemmaComponent } from './dilemma/dilemma.component';
   ],
   imports: [
     CommonModule,
-    CoreModule
+    CoreModule,
   ],
   exports:[
     DilemmaComponent

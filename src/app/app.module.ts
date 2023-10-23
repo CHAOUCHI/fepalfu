@@ -9,12 +9,16 @@ import { NewTurnModule } from './screens/new-turn/new-turn.module';
 import { DilemmaModule } from './screens/dilemma/dilemma.module';
 import { RollDiceProbaToDrinkModule } from './screens/roll-dice-proba-to-drink/roll-dice-proba-to-drink.module';
 import { DilemmaDrinkModule } from './screens/dilemma-drink/dilemma-drink.module';
+import { CoreModule } from './core/core.module';
+import { DilemmaRollFailModule } from './screens/dilemma-roll-fail/dilemma-roll-fail.module';
+import { DilemmaRollSuccessModule } from './screens/dilemma-roll-success/dilemma-roll-success.module';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    CoreModule,
     BrowserModule,
     AppRoutingModule,
     HomeModule,
@@ -22,7 +26,9 @@ import { DilemmaDrinkModule } from './screens/dilemma-drink/dilemma-drink.module
     NewTurnModule,
     RollDiceProbaToDrinkModule,
     DilemmaModule,
-    DilemmaDrinkModule
+    DilemmaDrinkModule,
+    DilemmaRollFailModule,
+    DilemmaRollSuccessModule
   ],
   providers: [],
   bootstrap: [AppComponent]

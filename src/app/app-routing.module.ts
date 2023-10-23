@@ -6,6 +6,8 @@ import { NewTurnComponent } from './screens/new-turn/new-turn/new-turn.component
 import { RollDiceProbaToDrinkComponent } from './screens/roll-dice-proba-to-drink/roll-dice-proba-to-drink/roll-dice-proba-to-drink.component';
 import { DilemmaComponent } from './screens/dilemma/dilemma/dilemma.component';
 import { DilemmaDrinkComponent } from './screens/dilemma-drink/dilemma-drink/dilemma-drink.component';
+import { DilemmaRollSuccessComponent } from './screens/dilemma-roll-success/dilemma-roll-success/dilemma-roll-success.component';
+import { DilemmaRollFailComponent } from './screens/dilemma-roll-fail/dilemma-roll-fail/dilemma-roll-fail.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -14,6 +16,8 @@ const routes: Routes = [
   {path:"roll-dice-proba",component:RollDiceProbaToDrinkComponent},
   {path:"dilemma",component:DilemmaComponent},
   {path:"dilemma-drink",component:DilemmaDrinkComponent},
+  {path:"dilemma-roll-success",component:DilemmaRollSuccessComponent},
+  {path:"dilemma-roll-fail",component:DilemmaRollFailComponent},
   {path:"**",component:HomeComponent},
 ];
 

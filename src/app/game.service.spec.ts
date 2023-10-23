@@ -1,12 +1,31 @@
 import { TestBed } from '@angular/core/testing';
 import { GameService } from './game.service';
 
+import { Player } from './core/Classes/Player';
+import { Sip } from './core/Classes/Sip';
 
+describe('GameService',()=>{
+  let gameService : GameService;
+  beforeEach(()=>{
+    TestBed.configureTestingModule({});
+    gameService = TestBed.inject(GameService);
+  });
+
+  it("should make a player drink",()=>{
+    gameService.startGame(new Set(["Arnaud","Massi","Cléo"]),10).then(_=>{
+      gameService.drink(1,"Arnaud").then((sip : Sip)=>{
+        expect(sip).toBeInstanceOf(Sip);
+        expect(sip.targetPlayerName).toEqual("Arnaud");
+        expect(sip.distributorPlayerName).toBeNull();
+        expect(sip.nbSips).toEqual(1);
+      })
+    })
+  });
+})
 
 
 /*
 
-import { Player } from './core/Classes/Player';
 
 describe('GameService : Start a gaming session',()=>{
   let service: GameService;

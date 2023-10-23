@@ -26,7 +26,7 @@
 
             <p class="font-m">JETER UN DÉ</p>
 
-            <app-spinning-dice [rollingSpeed]="200" [infinite]="true" class="roll-dice bounce"></app-spinning-dice>
+            <app-spinning-dice [rollingSpeed]="200" [infinite]="true" class="roll-dice bounce" (click)="rollDice()"></app-spinning-dice>
             
             <p class="font-m do-more-than">ET FAIRE PLUS DE <img class="dice" src="assets/dice/white/{{probaToDrink}}.png" alt="Probability to drink"></p>
             

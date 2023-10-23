@@ -1,0 +1,21 @@
+.screen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title{
+    font-size: 150px;
+    margin:0px;
+}
+.center{
+    text-align: center;
+}
+.tour{
+    opacity: 0.5;
+}
+
+.dice{
+    width: 50px;
+}

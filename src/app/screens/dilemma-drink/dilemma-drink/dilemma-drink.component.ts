@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GameState } from 'src/app/core/Classes/GameStates';
 import { Player } from 'src/app/core/Classes/Player';
 import { GameService } from 'src/app/game.service';
@@ -11,7 +12,7 @@ import { GameService } from 'src/app/game.service';
 export class DilemmaDrinkComponent implements OnInit{
   public currentPlayer : Player = new Player("[name");
   public sips : number  = 0;
-  constructor(public gameService : GameService){/**void */}
+  constructor(public gameService : GameService, private router : Router){/**void */}
 
   ngOnInit(): void {
     this.gameService.currentPlayer
@@ -26,7 +27,13 @@ export class DilemmaDrinkComponent implements OnInit{
   }
 
   onDrink(){
-    //this.gameService.drink(this.sips,this.currentPlayer.name).then()
+      this.gameService.drink(this.sips,this.currentPlayer.name).then(_=>{
+        this.gameService.nextTurn().then(_=>{
+          this.router.navigateByUrl("new-turn");
+        })
+        .catch(error=>console.error(error));
+      })
+      .catch(error=>console.error(error));
   }
 
   
