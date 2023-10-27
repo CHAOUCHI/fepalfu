@@ -1,10 +1,129 @@
 <section class="screen gradient-bg">
-    <p class="font-l tour">Tour de {{currentPlayer.name}}</p>
-    <p>Au pétard ! Le succès critique !</p>
-    <p>"T'es du genre à te faire remarquer mais jamais recalé".</p>
+    <p class="font-l tour"><span>Tour de {{currentPlayer.name}} ...</span></p>
+    <div class="heading">
+        <p class="font-l">Au pétard ! Le succès critique !</p>
+        <p class="joke font-m">"T'es du genre à te faire remarquer mais jamais recalé".</p>
+    </div>
     <div class="distribute">
-        <div>
-            <img src="assets/dice/yellow/{{playerLuck}}.png">
+        <div class="col1">
+            <img src="assets/dice/yellow/{{playerLuck}}.png" class="dice">
+        </div>
+        <div class="col2">
+            <p class="player_action font-l">{{currentPlayer.name}} distribue...<br>
+            <span class="font-xl sips_value">{{sips}}</span><br>
+            gorgée{{sips > 1? "s" : ""}} !
+            </p>
+
+            <div class="players">
+
+                <div class="player">
+                    <p class="name font-m">Player NAME 1</p>
+                    <div class="counter">
+                        <div class="font-l sips_input">
+                            <div class="plus">+</div>
+                            <div class="sips_value">0</div>
+                            <div class="minus">-</div>
+                        </div>
+                    </div>
+                    <p>gorgées !</p>
+                </div>
+               
+                <div class="player">
+                    <p class="name font-m">Player NAME 1</p>
+                    <div class="counter">
+                        <div class="font-l sips_input">
+                            <div class="plus">+</div>
+                            <div class="sips_value">0</div>
+                            <div class="minus">-</div>
+                        </div>
+                    </div>
+                    <p>gorgées !</p>
+                </div>
+
+                <div class="player">
+                    <p class="name font-m">Player NAME 1</p>
+                    <div class="counter">
+                        <div class="font-l sips_input">
+                            <div class="plus">+</div>
+                            <div class="sips_value">0</div>
+                            <div class="minus">-</div>
+                        </div>
+                    </div>
+                    <p>gorgées !</p>
+                </div>
+
+                <div class="player">
+                    <p class="name font-m">Player NAME 1</p>
+                    <div class="counter">
+                        <div class="font-l sips_input">
+                            <div class="plus">+</div>
+                            <div class="sips_value">0</div>
+                            <div class="minus">-</div>
+                        </div>
+                    </div>
+                    <p>gorgées !</p>
+                </div>
+
+                <div class="player">
+                    <p class="name font-m">Player NAME 1</p>
+                    <div class="counter">
+                        <div class="font-l sips_input">
+                            <div class="plus">+</div>
+                            <div class="sips_value">0</div>
+                            <div class="minus">-</div>
+                        </div>
+                    </div>
+                    <p>gorgées !</p>
+                </div>
+
+                <div class="player">
+                    <p class="name font-m">Player NAME 1</p>
+                    <div class="counter">
+                        <div class="font-l sips_input">
+                            <div class="plus">+</div>
+                            <div class="sips_value">0</div>
+                            <div class="minus">-</div>
+                        </div>
+                    </div>
+                    <p>gorgées !</p>
+                </div>
+
+                <div class="player">
+                    <p class="name font-m">Player NAME 1</p>
+                    <div class="counter">
+                        <div class="font-l sips_input">
+                            <div class="plus">+</div>
+                            <div class="sips_value">0</div>
+                            <div class="minus">-</div>
+                        </div>
+                    </div>
+                    <p>gorgées !</p>
+                </div>
+
+                <div class="player">
+                    <p class="name font-m">Player NAME 1</p>
+                    <div class="counter">
+                        <div class="font-l sips_input">
+                            <div class="plus">+</div>
+                            <div class="sips_value">0</div>
+                            <div class="minus">-</div>
+                        </div>
+                    </div>
+                    <p>gorgées !</p>
+                </div>
+
+                <div class="player">
+                    <p class="name font-m">Player NAME 1</p>
+                    <div class="counter">
+                        <div class="font-l sips_input">
+                            <div class="plus">+</div>
+                            <div class="sips_value">0</div>
+                            <div class="minus">-</div>
+                        </div>
+                    </div>
+                    <p>gorgées !</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>

@@ -9,13 +9,16 @@ import { GameService } from 'src/app/game.service';
 })
 export class DilemmaRollSuccessComponent implements OnInit{
   public currentPlayer = new Player("Player name");
+  public otherPlayers = [];
   public playerLuck = 0;
-
+  public sips = 0;
   constructor(private gameService : GameService){/**VOID*/}
 
   ngOnInit(): void {
-    this.gameService.currentPlayer.then(player=>this.currentPlayer = player);
-    this.gameService.playerLuck.then(playerLuck=>this.playerLuck = playerLuck || 1);
+    this.gameService.currentPlayer.then(player=>this.currentPlayer = player).catch(error=>console.error(error));
+    this.gameService.playerLuck.then(playerLuck=>this.playerLuck = playerLuck || 1).catch(error=>console.error(error));
+    this.gameService.sips.then(sips=>this.sips = sips || 0).catch(error=>console.error(error));
+    // TO DO
   }
 
 }
