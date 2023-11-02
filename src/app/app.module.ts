@@ -12,6 +12,7 @@ import { DilemmaDrinkModule } from './screens/dilemma-drink/dilemma-drink.module
 import { CoreModule } from './core/core.module';
 import { DilemmaRollFailModule } from './screens/dilemma-roll-fail/dilemma-roll-fail.module';
 import { DilemmaRollSuccessModule } from './screens/dilemma-roll-success/dilemma-roll-success.module';
+import { CriticalSuccessModule } from './screens/critical-success/critical-success.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DilemmaRollSuccessModule } from './screens/dilemma-roll-success/dilemma
     DilemmaModule,
     DilemmaDrinkModule,
     DilemmaRollFailModule,
-    DilemmaRollSuccessModule
+    DilemmaRollSuccessModule,
+    CriticalSuccessModule
   ],
   providers: [],
   bootstrap: [AppComponent]

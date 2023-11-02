@@ -5,6 +5,7 @@ import { PrimaryButtonComponent } from './primary-button/primary-button.componen
 import { LogoComponent } from './logo/logo.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { SpinningDiceComponent } from './spinning-dice/spinning-dice.component';
+import { DistributeComponent } from './distribute/distribute.component';
 
 
 
@@ -13,6 +14,7 @@ import { SpinningDiceComponent } from './spinning-dice/spinning-dice.component';
     LogoComponent,
     PrimaryButtonComponent,
     SpinningDiceComponent,
+    DistributeComponent,
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { SpinningDiceComponent } from './spinning-dice/spinning-dice.component';
     PrimaryButtonComponent,
     TextInnerShadowComponent,
     AppRoutingModule,
-    SpinningDiceComponent
+    SpinningDiceComponent,
+    DistributeComponent
   ]
 })
 export class CoreModule { }

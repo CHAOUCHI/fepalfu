@@ -1,0 +1,89 @@
+.screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left : 100px;
+    padding-right : 100px;
+    overflow: hidden;
+}
+.tour{
+    opacity: 0.6;
+    margin:0px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.heading{
+    margin : 20px 0px; 
+}
+.info{
+    margin-top : 10px;
+    margin-bottom : 10px;
+    letter-spacing: 5px;
+}
+.joke{
+    opacity: 0.6;
+    margin : 0px;
+    letter-spacing: 5px;
+}
+.distribute{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap : 10px;
+    width: 100%;
+}
+
+.col2, .col1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.col1{
+    min-width:33%;
+    align-items: flex-start;
+}
+.col2{
+    min-width:66%;
+}
+
+.player_action{
+    text-align: center;
+}
+.btn_distribute{
+    margin : 55px 0px;
+}
+.players{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: scroll;
+    width: 100%;
+}
+.player{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+    min-width:26%;
+}
+.name{
+    text-align: center;
+    width:100%;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin : 20px 0px;
+}
+.sips_input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sips_input>* {
+    padding : 0px 5px;
+    min-width: 60px;
+    text-align: center;
+}

@@ -25,6 +25,11 @@ export class DilemmaComponent implements OnInit{
         this.sips = gameState.sips || 0;
 
     }).catch(error=>console.error(error));
+
+    const probaToDrinkDice = document.querySelector(".proba_to_drink");
+    setTimeout(()=>{
+      probaToDrinkDice?.classList.remove("show_dice");
+    },700);
   }
 
   public rollDice() : void{

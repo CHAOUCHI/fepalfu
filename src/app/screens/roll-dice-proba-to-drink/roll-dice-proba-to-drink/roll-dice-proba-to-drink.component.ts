@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Player } from 'src/app/core/Classes/Player';
 import { GameService } from 'src/app/game.service';
 
@@ -10,7 +11,7 @@ import { GameService } from 'src/app/game.service';
 export class RollDiceProbaToDrinkComponent implements OnInit{
   public currentPlayer : Player = new Player("[NAME]");
   private probaToDrink : number = 0;
-  constructor( private gameService : GameService ){/*void */}
+  constructor( private gameService : GameService ,private router : Router){/*void */}
 
   ngOnInit(): void {
     /**
@@ -57,7 +58,10 @@ export class RollDiceProbaToDrinkComponent implements OnInit{
             const randomAngle = Math.floor(Math.random()*360);
             diceElement.setAttribute("style",`transform : rotate(${randomAngle}deg);`);
             diceElement?.classList.add("bounce");
-
+            if(this.probaToDrink === 6){
+              this.router.navigateByUrl("critical-success");
+            }
+            //TO DO CIRITCAL SUCCESS if(this.probaToDrink === 6) this.router.navigateByUrl("")
           }
        })
        .catch(error=>console.error(error));

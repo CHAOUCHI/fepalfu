@@ -1,0 +1,23 @@
+<section>
+    <p class="player_action font-l" *ngIf="remaingSips >0">
+        {{currentPlayer.name}} distribue...<br>
+        <span class="font-xl sips_value">{{remaingSips}}</span><br>
+        gorgée{{sips > 1? "s" : ""}} !
+    </p>
+    <app-primary-button text="Distribuer !" size="m" class="btn_distribute bounce" (click)="distribute()" *ngIf="remaingSips <=0"></app-primary-button>
+    
+    <div class="players">
+        <div class="player" *ngFor="let player of otherPlayers">
+            <p class="name font-l">{{player.name}}</p>
+            <div class="counter">
+                <div class="font-l sips_input">
+                    <div class="plus font-xl"(click)="addSip(player.name)">+</div>
+                    <div class="sips_value">{{playersSips.get(player.name)}}</div>
+                    <div class="minus  font-xl" (click)="removeSip(player.name)">-</div>
+                </div>
+            </div>
+            <p class="font-m">gorgées !</p>
+        </div>
+        
+    </div>
+</section>

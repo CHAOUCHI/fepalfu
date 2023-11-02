@@ -19,7 +19,7 @@ export class DilemmaRollFailComponent implements OnInit{
     this.gameService.sips.then(sips=>this.sips = sips || 0);
   }
   onDrink(){
-    this.gameService.drink(this.sips,this.currentPlayer.name).then(_=>{
+    this.gameService.drink(this.sips*2,this.currentPlayer.name).then(_=>{
       this.gameService.nextTurn().then(_=>{
         this.router.navigateByUrl("new-turn");
       })

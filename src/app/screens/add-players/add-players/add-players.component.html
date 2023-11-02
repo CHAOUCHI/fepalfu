@@ -3,8 +3,7 @@
     <h2>Bon... qui joue ?</h2>
     <app-add-players-form (addPlayerEvent)="onAddPlayer($event)"></app-add-players-form>
     <div class="flex-row">
-        <a routerLink=""></a>
-        <app-primary-button text="Commencer" size="m" (click)="startGame()"></app-primary-button>
+        <app-primary-button text="Commencer" size="m" (click)="startGame()" ></app-primary-button>
         <p id="requirements">Ajoutez au moins 2 joueurs ...</p>
     </div>
 </section>

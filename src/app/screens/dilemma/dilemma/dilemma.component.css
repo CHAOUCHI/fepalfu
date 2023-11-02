@@ -73,8 +73,21 @@
 }
 .detail_felefu *{
     text-align: center;
+    opacity: 0.9;
 }
 
 .sips{
     text-align: center;
+}
+.dice.proba_to_drink{
+    transition: translate 2s, scale 2s,rotate 2s;
+}
+.show_dice{
+    translate: -34vw -16vh;
+    scale : 10;
+    rotate: 10deg;
+}
+
+.player_action,.detail_felefu{
+    margin-top:50px;
 }
