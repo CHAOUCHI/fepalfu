@@ -1,7 +1,8 @@
 <section class="screen gradient-bg">
     <p class="font-m tour"><span>Tour de {{currentPlayer.name}} ...</span></p>
     <img class="dice" src="assets/dice/white/{{playerLuck}}.png" alt="player luck">
-    <p class="tafelfu">Tafélfu!</p>
+    <p class="font-l title-fail">Succès</p>
+    <p class="tafelfu">Tafélfu !</p>
     <app-distribute [sips]="sips" (onDistribute)="gotoNewTurn()"></app-distribute>
     <img src="assets/dilemma-roll-success-bg.png" alt="" class="bg_cups">
 </section>

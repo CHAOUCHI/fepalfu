@@ -10,7 +10,6 @@ import { GameService } from 'src/app/game.service';
 })
 export class CriticalSuccessComponent implements OnInit{
   public currentPlayer : Player = new Player("Player name");
-  public playerLuck : number = 0;
   public sips : number = 0;
 
   constructor(private gameService : GameService,private router : Router){/**VOID*/}
@@ -18,7 +17,6 @@ export class CriticalSuccessComponent implements OnInit{
   ngOnInit(): void {
     this.gameService.sips.then(sips=>this.sips = sips || 0).then(sips=>console.log(sips)).catch(error=>console.error(error));
     this.gameService.currentPlayer.then(player=>this.currentPlayer = player).catch(error=>console.error(error));
-    this.gameService.playerLuck.then(playerLuck=>this.playerLuck = playerLuck || 1).catch(error=>console.error(error));
   }
   
   public gotoNewTurn(){

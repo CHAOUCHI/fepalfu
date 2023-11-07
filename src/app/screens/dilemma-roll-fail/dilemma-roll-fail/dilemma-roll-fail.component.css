@@ -19,3 +19,9 @@
 .dice{
     width: 50px;
 }
+.title-fail{
+    margin : 0px;
+    margin-top : 20px;
+    margin-bottom : 20px;
+    opacity: 0.5;
+}

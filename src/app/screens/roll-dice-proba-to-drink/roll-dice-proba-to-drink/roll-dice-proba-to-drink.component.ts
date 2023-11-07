@@ -61,11 +61,16 @@ export class RollDiceProbaToDrinkComponent implements OnInit{
             if(this.probaToDrink === 6){
               this.router.navigateByUrl("critical-success");
             }
-            //TO DO CIRITCAL SUCCESS if(this.probaToDrink === 6) this.router.navigateByUrl("")
+            
           }
        })
        .catch(error=>console.error(error));
       }
     },rollSpeed);
+  }
+  goToDilemmaScreen(){
+    if(this.probaToDrink > 0){
+      this.router.navigateByUrl("dilemma");
+    }
   }
 }
