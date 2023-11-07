@@ -9,6 +9,7 @@ import { DilemmaDrinkComponent } from './screens/dilemma-drink/dilemma-drink/dil
 import { DilemmaRollSuccessComponent } from './screens/dilemma-roll-success/dilemma-roll-success/dilemma-roll-success.component';
 import { DilemmaRollFailComponent } from './screens/dilemma-roll-fail/dilemma-roll-fail/dilemma-roll-fail.component';
 import { CriticalSuccessComponent } from './screens/critical-success/critical-success/critical-success.component';
+import { ResultsComponent } from './screens/results/results/results.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:"dilemma-roll-success",component:DilemmaRollSuccessComponent},
   {path:"dilemma-roll-fail",component:DilemmaRollFailComponent},
   {path:"critical-success",component:CriticalSuccessComponent},
+  {path:"results",component:ResultsComponent},
   {path:"**",component:HomeComponent},
 ];
 

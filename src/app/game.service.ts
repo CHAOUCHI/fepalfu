@@ -3,6 +3,7 @@ import { Response } from './core/Classes/Response';
 import { Player } from './core/Classes/Player';
 import { GameState } from './core/Classes/GameStates';
 import { Sip } from './core/Classes/Sip';
+import { Result } from './core/Classes/Result';
 @Injectable({
   providedIn: 'root'
 })
@@ -537,9 +538,42 @@ export class GameService {
    * Give the current result and stats of the players based on the BDD and the localStorage
    * @returns A promise that resolve to a `Result` object
    */
-  public get results() : Promise<Response>{
+  public get results() : Promise<Result>{
     return new Promise((resolve,reject)=>{
-      throw Error("Method not impelmented");
+      this.readwriteSipsObjectStore(async (sipsStore : IDBObjectStore)=>{
+        const getAllSipsRequest : IDBRequest = sipsStore.getAll();
+        getAllSipsRequest.onerror = (error)=>{ reject(error); return; }
+        getAllSipsRequest.onsuccess = ()=>{
+          const sips = getAllSipsRequest.result;
+          const distributedSips = sips.filter((sip : Sip)=>(sip.targetPlayerName === "Cléo" && sip.context.distributed === true));
+          
+          let nbSipReceivedFrom : Map<string,number> = new Map<string,number>();
+          
+          distributedSips.forEach((distributedSip : Sip)=>{
+            if(!distributedSip.distributorPlayerName)return;
+
+            nbSipReceivedFrom.set(
+              distributedSip.distributorPlayerName,
+              nbSipReceivedFrom.get(distributedSip.distributorPlayerName)||0+distributedSip.nbSips
+            );
+            console.log(nbSipReceivedFrom);
+          })
+          resolve(new Result());
+        }
+        
+      }).catch(error=>console.log(error));
+      
+      /**
+       * name : the name of the player of the row
+       * nemesis : the player that distribute the bigger amount of sips to the player of the row
+       * gorgées total bue par le player row peut importe d'ou ca viens
+       * gorgées distribute par le player row a n'importe quel player
+       * gorgées reçu 
+       * 
+       * 
+       * 
+       * 
+       */
     });
   }
 

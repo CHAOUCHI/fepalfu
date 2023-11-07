@@ -1,0 +1,34 @@
+<section class="screen gradient-bg">
+    <div class="title">
+        <h1>Résultat de la partie !</h1>
+        <img src="assets/logo-fepalfu.png" alt="">
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Nemesis</th>
+                    <th>Gorgées prises</th>
+                    <th>Gorgées distribuées</th>
+                    <th>Gorgées reçu</th>
+                    <th>ratio<br>reçu / prises</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let player of players">
+                    <td>{{player.name}}</td>
+                    <td>[name.nemesis]</td>
+                    <td>[prise par...name player]</td>
+                    <td>[distribué par...name player]</td>
+                    <td>[nbReçu des autres players par ...name player]</td>
+                    <td>[ratio gorgées reçu par / gorgées prises des autres]</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="input">
+
+    </div>
+</section>

@@ -13,6 +13,7 @@ import { CoreModule } from './core/core.module';
 import { DilemmaRollFailModule } from './screens/dilemma-roll-fail/dilemma-roll-fail.module';
 import { DilemmaRollSuccessModule } from './screens/dilemma-roll-success/dilemma-roll-success.module';
 import { CriticalSuccessModule } from './screens/critical-success/critical-success.module';
+import { ResultsModule } from './screens/results/results.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CriticalSuccessModule } from './screens/critical-success/critical-succe
     DilemmaDrinkModule,
     DilemmaRollFailModule,
     DilemmaRollSuccessModule,
-    CriticalSuccessModule
+    CriticalSuccessModule,
+    ResultsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
