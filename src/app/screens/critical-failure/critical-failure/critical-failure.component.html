@@ -1,1 +1,15 @@
-<p>critical-failure works!</p>
+<section class="screen gradient-bg">
+    <p class="font-l tour"><span>Tour de {{currentPlayer.name}} ...</span></p>
+    <div class="heading">
+        <p class="font-xl info">Cheh ! Echec critique !</p>
+        <p class="joke font-m">"C'est d'la faute à pas de chance lol..."</p>
+    </div>
+    <div class="drinks">
+        <div class="col1">
+            <img src="assets/dice/red/1.png" class="dice">
+        </div>
+        <div class="col2" (click)="goToNextTurn()">
+            <h2 class="font-xl who_drinks">{{currentPlayer.name}} boit <br><span class="sips_value">{{sips}}</span><br> gorgées !</h2>
+        </div>
+    </div>
+</section>

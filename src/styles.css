@@ -35,15 +35,21 @@ body{
 /* Gradient Background animated------------------------*/
 .gradient-bg{
     background: linear-gradient(261deg,var(--light-purple),#6631a8,var(--dark-purple));
-    background-size: 200% 200%;
-    animation : gradiante 7s ease infinite;
+    background-size: 230% 230%;
+    animation : gradiante 5s ease infinite;
 }
 @keyframes gradiante {
     0%{
         background-position: 0% 50%;
     }
+    75%{
+        background-position: 100% 0%;
+    }
     50%{
         background-position: 100% 50%;
+    }
+    75%{
+        background-position: 100% 25%;
     }
     100%{
         background-position: 0% 50%;
@@ -85,4 +91,10 @@ body{
     text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
                1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
     color : red;
+}
+
+*{
+    scrollbar-color : #0000003b transparent;
+    scrollbar-width: thin;
+    scrollbar-arrow-color: transparent;
 }

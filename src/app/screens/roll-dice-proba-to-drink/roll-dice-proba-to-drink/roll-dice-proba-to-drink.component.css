@@ -27,3 +27,17 @@ section{
         filter: blur(20px);
     }
 }
+
+
+@media only screen and (max-width: 900px) {
+    .screen *{
+        font-size: 25px;
+    }
+    .info{
+        margin:5px;
+    }
+    .dice{
+        margin-top:20px;
+        width:150px;
+    }
+  }

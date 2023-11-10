@@ -1,0 +1,62 @@
+.table *,.table{
+}
+
+.screen{
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: 1fr 7fr 3fr;
+}
+
+.title{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+}
+.title h1{
+    font-size:65px;
+    margin : 0px;
+    letter-spacing: 12px;
+}
+.title .logo{
+    width:100%;
+}
+
+.table{
+    font-size:23px;
+    letter-spacing: 10px;
+    margin : 20px 0px;
+}
+.table__row{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.table__row>div{
+    text-align: center;
+    line-height: 40px;
+}
+.table__header .table__row{
+    font-size:30px;
+    padding-bottom: 50px;
+}
+.table__header__ratio{
+    font-size:25px;
+}
+
+.table__body{
+    max-height: 37vh;
+    overflow-y: scroll;
+}
+
+.input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/assets/multiple-cups.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}

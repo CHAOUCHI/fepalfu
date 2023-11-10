@@ -7,10 +7,34 @@ h2{
     padding-right : 100px;
 }
 
+
+
 app-primary-button {
     font-size: 0.5em;
 }
 
 #requirements{
     font-size: 40px;
+}
+
+@media only screen and (max-width: 900px) {
+    .screen{
+        padding : 25px;
+    }
+    h2{
+        margin: 0px;
+    }
+    .screen{
+        font-size: 10px;
+    }
+    #requirements{
+        font-size: 25px;
+    }
+    app-primary-button {
+        font-size: 0.7em;
+    }
+    app-add-players-form #wrapper{
+        height: 38vh !important;
+    }
+
 }

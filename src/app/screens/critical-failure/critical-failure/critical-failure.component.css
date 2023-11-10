@@ -1,0 +1,87 @@
+.screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left : 100px;
+    padding-right : 100px;
+    overflow: hidden;
+}
+.tour{
+    opacity: 0.6;
+    margin:0px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.heading{
+    margin : 20px 0px; 
+}
+.info{
+    margin-top : 10px;
+    margin-bottom : 10px;
+    letter-spacing: 5px;
+}
+.joke{
+    opacity: 0.6;
+    margin : 0px;
+    letter-spacing: 5px;
+}
+.drinks{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap : 10px;
+    width: 100%;
+}
+
+.col2, .col1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.col1{
+    min-width:33%;
+    align-items: flex-start;
+}
+.dice{
+    rotate: 5deg;
+    max-width: 100%;
+}
+
+.col2{
+    min-width:66%;
+}
+.who_drinks{
+    font-size: 100px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 900px) {
+
+    .font-l {
+        font-size: 15px;
+      }
+    .screen{
+        padding: 20px;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .font-xl {
+        font-size: 25px;
+    }
+    .font-m {
+        font-size: 12px;
+      }
+    .who_drinks{
+        font-size: 35px;
+        line-height: 55px;
+    }
+    .col1{
+        align-items: center;
+    }
+    .dice{
+        width: 140px;
+    }
+
+}

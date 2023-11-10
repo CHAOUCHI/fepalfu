@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Response } from './core/Classes/Response';
 import { Player } from './core/Classes/Player';
 import { GameState } from './core/Classes/GameStates';
 import { Sip } from './core/Classes/Sip';
-import { Result } from './core/Classes/Result';
+import { ResultPlayerData } from './core/Classes/ResultPlayerData';
 @Injectable({
   providedIn: 'root'
 })
@@ -538,27 +537,93 @@ export class GameService {
    * Give the current result and stats of the players based on the BDD and the localStorage
    * @returns A promise that resolve to a `Result` object
    */
-  public get results() : Promise<Result>{
+  public get results() : Promise<ResultPlayerData[]>{
     return new Promise((resolve,reject)=>{
       this.readwriteSipsObjectStore(async (sipsStore : IDBObjectStore)=>{
         const getAllSipsRequest : IDBRequest = sipsStore.getAll();
         getAllSipsRequest.onerror = (error)=>{ reject(error); return; }
-        getAllSipsRequest.onsuccess = ()=>{
-          const sips = getAllSipsRequest.result;
-          const distributedSips = sips.filter((sip : Sip)=>(sip.targetPlayerName === "Cléo" && sip.context.distributed === true));
-          
-          let nbSipReceivedFrom : Map<string,number> = new Map<string,number>();
-          
-          distributedSips.forEach((distributedSip : Sip)=>{
-            if(!distributedSip.distributorPlayerName)return;
+        getAllSipsRequest.onsuccess = async ()=>{
+          const sips : Array<Sip> = getAllSipsRequest.result;
+          const players = await this.players;
+          let resultPlayerDatas :ResultPlayerData[] = [];
+          players.forEach(player=>{
+            const sipsDistrubutedToPlayer = sips.filter((sip : Sip)=>(sip.targetPlayerName === player.name && sip.context.distributed === true));
+            
+            /**
+             * Getting a map of the the amount of sips distributed to the player 
+             * and the name of the player that gave the sips.
+            */
+            let nbSipsReceivedFrom : Map<string,number> = new Map<string,number>();
+            sipsDistrubutedToPlayer.forEach((distributedSip : Sip)=>{
+              if(!distributedSip.distributorPlayerName)return;
+              
+              nbSipsReceivedFrom.set(
+                distributedSip.distributorPlayerName,
+                nbSipsReceivedFrom.get(distributedSip.distributorPlayerName)||0+distributedSip.nbSips
+              );
+            });
 
-            nbSipReceivedFrom.set(
-              distributedSip.distributorPlayerName,
-              nbSipReceivedFrom.get(distributedSip.distributorPlayerName)||0+distributedSip.nbSips
+            /**
+             * Getting the name of the player that gave the most sips
+             * aka the nemesis
+             */
+            let nemesisName  = "";
+            const maxSipsgivenByOtherPlayer = Math.max(...nbSipsReceivedFrom.values());
+            nbSipsReceivedFrom.forEach((nbSips,distributorName)=>{
+              if(nbSips === maxSipsgivenByOtherPlayer){
+                nemesisName = distributorName;
+              }
+            });
+
+            /**
+             * Getting the amount of sips taken by the player
+             */
+            let playerSips  : Sip[] = [];
+            let nbSipsTaken = 0;
+            sips.forEach((sip)=>{
+              if(sip.targetPlayerName === player.name){
+                playerSips.push(sip);
+                nbSipsTaken+=sip.nbSips;
+              }
+            });
+
+            /**
+             * Getting the amount of sips distributed to other player by the current player
+             */
+            let nbSipsDistributed = 0;
+            let sipsDistributed : Sip[] = [];
+            sips.forEach((sip)=>{
+              if(sip.distributorPlayerName === player.name && sip.context.distributed === true){
+                sipsDistributed.push(sip);
+                nbSipsDistributed+=sip.nbSips;
+              }
+            });
+
+            /**
+             * Getting the amount of sips received from other player to the current player
+             */
+            let nbSipsReceived = 0;
+            let sipsReceived : Sip[] = [];
+            sips.forEach(sip=>{
+              if(sip.targetPlayerName === player.name && sip.context.distributed === true){
+                sipsReceived.push(sip);
+                nbSipsReceived+=sip.nbSips;
+              }
+            });
+
+            resultPlayerDatas.push(
+              new ResultPlayerData(
+                player.name,
+                nemesisName, 
+                nbSipsTaken,
+                nbSipsDistributed,
+                nbSipsReceived,
+                sips
+              )
             );
-            console.log(nbSipReceivedFrom);
-          })
-          resolve(new Result());
+          });
+          resolve(resultPlayerDatas);
+
         }
         
       }).catch(error=>console.log(error));

@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent{
   title = 'Fepalfu - Jeu à boire';
+  version = "0.0.0";
 }

@@ -25,7 +25,7 @@
     rotate : 4deg;
 }
 .roll-dice{
-    width:100px;
+    width:150px;
     rotate : 4deg;
     filter: blur(0px);
 }
@@ -52,7 +52,10 @@
     justify-content: center;
     align-items: center;
 }
+.col_felefu .heading{
+    margin-bottom: 50px;
 
+}
 .col_fepalfu .choice{
     background:linear-gradient(90deg,transparent,#9e2cc1d2);
     padding:10px;
@@ -70,10 +73,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap : 120px;
+    opacity: 0.5;
 }
 .detail_felefu *{
     text-align: center;
-    opacity: 0.9;
 }
 
 .sips{
@@ -90,4 +93,56 @@
 
 .player_action,.detail_felefu{
     margin-top:50px;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .screen{
+        padding: 20px;
+    }
+    #filigrane{
+        width: 20%;
+    }
+    .font-xl {
+        font-size: 25px;
+    }
+    .title{
+        margin:0px;
+        font-size: 15px;
+    }
+    .font-m{
+        font-size: 15px;
+    }
+    .choice{
+        letter-spacing: 6px;
+        font-size: 20px;
+    }
+    .joke{
+        margin: 5px;
+        font-size: 11px;
+    }
+    .grid{
+        grid-template-columns: 4fr 1fr 4fr;
+        gap:0px;
+    }
+    .col_fepalfu{
+        gap : 20px;
+    }    
+    .col_fepalfu .heading{
+        text-align: left;
+    }
+    .col_felefu .heading{
+        text-align: right;
+        margin-bottom: 0px;
+    }
+    .roll-dice{
+        width:75px;
+    }
+    .dice{
+        width: 25px;
+    }
+    .detail_felefu{
+        margin:0px;
+        gap : 5px;
+    }
 }

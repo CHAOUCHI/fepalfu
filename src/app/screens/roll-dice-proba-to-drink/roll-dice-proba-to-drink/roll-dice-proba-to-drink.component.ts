@@ -58,10 +58,20 @@ export class RollDiceProbaToDrinkComponent implements OnInit{
             const randomAngle = Math.floor(Math.random()*360);
             diceElement.setAttribute("style",`transform : rotate(${randomAngle}deg);`);
             diceElement?.classList.add("bounce");
+            /**
+             * If the roll is a critical success
+             * navigate to critical-success screen
+             */
             if(this.probaToDrink === 6){
               this.router.navigateByUrl("critical-success");
             }
-            
+            /**
+             * If the roll is a critical failure
+             * navigate to critical-failure screen
+             */
+            if(this.probaToDrink === 1){
+              this.router.navigateByUrl("critical-failure");
+            }
           }
        })
        .catch(error=>console.error(error));

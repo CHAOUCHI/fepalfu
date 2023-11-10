@@ -38,3 +38,31 @@
     margin-top : 20px;
     opacity: 0.5;
 }
+
+@media only screen and (max-width: 900px) {
+    .screen{
+        padding : 10px;
+    }
+    .font-m {
+        font-size: 15px;
+      }
+      .font-l {
+        font-size: 25px;
+      }
+      .dice{
+        margin-top : 10px;
+        width: 30px;
+      }
+      .title-fail{
+        font-size: 18px;
+        margin-top : 5px;
+    }
+    .tafelfu{
+        margin-top: 10px;
+        font-size: 55px;
+    }
+    .player{
+        min-width: 25% !important;
+    }
+
+}

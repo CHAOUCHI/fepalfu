@@ -8,3 +8,20 @@ p{
     text-align: center;
     line-height: 90px;
 }
+
+@media only screen and (max-width: 900px) {
+    .font-xl{
+        font-size : 25px;
+        letter-spacing: 8px;
+    }
+    p{
+        line-height: 40px;
+    }
+    .sips_value{
+        font-size: 45px;
+    }
+
+    #filigrane{
+        width : 20%;
+    }
+}

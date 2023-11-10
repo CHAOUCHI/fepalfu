@@ -2,5 +2,5 @@
     <span id="filigrane"><app-logo></app-logo></span>
     <h2 class="font-xl">Au tour de {{currentPlayer?.name}} !</h2>
     <p class="font-xl">Tu joue pour ... <br><span class="sips_value">{{sips}}</span><br> gorgées</p>
-    <app-primary-button text="GO !" size="m" routerLink="/roll-dice-proba"></app-primary-button>
+    <app-primary-button text="GO !" [size]="buttonSize" routerLink="/roll-dice-proba"></app-primary-button>
 </section>

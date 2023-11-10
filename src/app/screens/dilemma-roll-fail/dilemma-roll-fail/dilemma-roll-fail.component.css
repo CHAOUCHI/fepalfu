@@ -25,3 +25,28 @@
     margin-bottom : 20px;
     opacity: 0.5;
 }
+
+@media only screen and (max-width: 900px) {
+.tour{
+    font-size: 15px;
+}
+.title{
+    font-size: 50px;
+}
+.title-fail{
+    margin-top : 10px;
+    margin-bottom : 10px;
+    font-size: 25px;
+}
+.player_action{
+    font-size: 20px;
+    letter-spacing: 5px;
+    line-height: 35px;
+}
+.sips_value{
+    font-size: 30px;
+}
+.dice{
+    width: 30px;
+}
+}

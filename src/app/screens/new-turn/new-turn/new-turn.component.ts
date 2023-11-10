@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Player } from 'src/app/core/Classes/Player';
 import { GameService } from 'src/app/game.service';
 
@@ -11,7 +10,7 @@ import { GameService } from 'src/app/game.service';
 export class NewTurnComponent implements OnInit{
   public currentPlayer : Player | null = null;
   public sips : number = 0;
-
+  public buttonSize = "m";
   constructor(private gameService : GameService){/**void */}
   
   ngOnInit(): void {
@@ -22,5 +21,12 @@ export class NewTurnComponent implements OnInit{
     this.gameService.setRandomSips()
     .then(sips=>this.sips=sips)
     .catch(error=>console.error(error));
+
+
+    const MOBILE_SCREEN_WIDTH = 900;
+    if(window.screen.width <= MOBILE_SCREEN_WIDTH){
+      this.buttonSize = "s";
+    }
+    
   }
 }

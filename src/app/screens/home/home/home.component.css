@@ -16,3 +16,9 @@ section{
 #home__logo{
     width: 100%;
 }
+
+@media only screen and (max-width: 900px) {
+    #home__logo{
+        width: 50%;
+    }
+}

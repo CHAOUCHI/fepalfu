@@ -1,34 +1,31 @@
 <section class="screen gradient-bg">
     <div class="title">
-        <h1>Résultat de la partie !</h1>
-        <img src="assets/logo-fepalfu.png" alt="">
+        <h1 class="font-xl">Résultat de la partie !</h1>
+        <img src="assets/logo-fepalfu.png" alt="Log de fepalfu" class="logo">
     </div>
     <div class="table">
-        <table>
-            <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Nemesis</th>
-                    <th>Gorgées prises</th>
-                    <th>Gorgées distribuées</th>
-                    <th>Gorgées reçu</th>
-                    <th>ratio<br>reçu / prises</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let player of players">
-                    <td>{{player.name}}</td>
-                    <td>[name.nemesis]</td>
-                    <td>[prise par...name player]</td>
-                    <td>[distribué par...name player]</td>
-                    <td>[nbReçu des autres players par ...name player]</td>
-                    <td>[ratio gorgées reçu par / gorgées prises des autres]</td>
-                </tr>
-
-            </tbody>
-        </table>
+            <div class="table__header">
+                <div class="table__row">
+                    <div>Nom</div>
+                    <div>Nemesis</div>
+                    <div>Gorgées<br>prises</div>
+                    <div>Gorgées distribuées</div>
+                    <div>Gorgées<br>reçu</div>
+                    <div class="table__header__ratio">ratio<br>reçu / prises</div>
+                </div>
+            </div>
+            <div class="table__body">
+                <div *ngFor="let result of results;" class="table__row">
+                    <div>{{result.playerName}}</div>
+                    <div>{{result.nemesisName}}</div>
+                    <div>{{result.nbSipsTaken}}</div>
+                    <div>{{result.nbSipsDistributed}}</div>
+                    <div>{{result.nbSipsReceived}}</div>
+                    <div>{{ round(result.nbSipsReceived / result.nbSipsTaken) }}%</div>
+                </div>
+            </div>
     </div>
     <div class="input">
-
+        <app-primary-button text="Rejouer !" routerLink="/"></app-primary-button>
     </div>
 </section>

@@ -47,3 +47,40 @@ section{
     min-width: 60px;
     text-align: center;
 }
+
+@media only screen and (max-width: 900px) {
+    .font-l{
+        font-size: 20px;
+    }
+    .sips_value{
+        font-size: 25px;
+    }
+    .player_action{
+        letter-spacing: 4px;
+        line-height: 30px;
+        margin:10px;
+    }
+    .name{
+        margin: 0px;
+    }
+    .font-xl {
+        font-size: 20px;
+    }
+    .heading{
+        margin : 0;
+    }
+    .player_action{
+        font-size: 20px;
+    }
+    .font-m {
+        font-size: 15px;
+        margin: 0;
+    }
+    .player{
+        min-width:33%;
+    }
+    
+    .btn_distribute{
+        margin: 15px 0px;
+    }
+}
