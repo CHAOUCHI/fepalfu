@@ -7,6 +7,8 @@ import { Component,Input,OnInit } from '@angular/core';
 })
 export class PrimaryButtonComponent{
   @Input() text : string = "[Missing 'text' property value]";
-  @Input() size :  "s" | "m" | "l" | string = "m";
+  @Input() size :  "xs" | "s" | "m" | "l" | string = "m";
   @Input() clickable : boolean = true;
+  @Input() backgroundColor : string = "green";
+  @Input() textColor : "white" | "black" = "white";
 }

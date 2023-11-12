@@ -1,9 +1,18 @@
-<div class="go-home">
-    <a routerLink="/">    
-        <img src="assets/cross.png" alt="Exit">
-    </a>
-</div>
 <router-outlet></router-outlet>
 
 <p class="game_version">Version : {{version}} [ BETA ]</p>
+<div class="go-home">
+    <img src="assets/exit.png" alt="Exit" class="go_home__icon" (click)="onLeave()">
+</div>
+<div class="go_home_confirmation hide">
+    <div class="go_home_confirmation__window">
+        <p>Etes- vous sur de vouloir QUITTER LA PARTIE ?</p>
+        <p>Votre progression sera perdue</p>
+        <div class="go_home_confirmation__window__buttons">
+            <app-primary-button text="QUITTER" size="xs" backgroundColor="red" textColor="white" (click)="goHome()"></app-primary-button>
+            <app-primary-button text="ANNULER" size="xs" (click)="continueToPlay()"></app-primary-button>
+        </div>
+    </div>
+</div>
+
 
