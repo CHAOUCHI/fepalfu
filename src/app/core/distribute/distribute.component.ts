@@ -8,9 +8,7 @@ import { GameService } from 'src/app/game.service';
   styleUrls: ['./distribute.component.css']
 })
 export class DistributeComponent implements OnInit,OnChanges{
-
-  constructor(private gameService : GameService){
-  }
+  constructor(private gameService : GameService){/**VOID */}
 
   ngOnInit(): void {
     this.gameService.currentPlayer.then(player=>this.currentPlayer = player).catch(error=>console.error(error));
@@ -22,6 +20,7 @@ export class DistributeComponent implements OnInit,OnChanges{
         return player.name !== this.currentPlayer.name;
       });
     }).catch(error=>console.error(error));
+
   }
 
   ngOnChanges(changes: SimpleChanges): void {

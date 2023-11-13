@@ -6,6 +6,7 @@
     padding-left : 100px;
     padding-right : 100px;
     overflow: hidden;
+    width: 100vw;
 }
 .screen>*{
     z-index: 2;
@@ -39,6 +40,10 @@
     opacity: 0.5;
 }
 
+app-distribute{
+    width : 80%;
+}
+
 @media only screen and (max-width: 900px) {
     .screen{
         padding : 10px;
@@ -46,23 +51,19 @@
     .font-m {
         font-size: 15px;
       }
-      .font-l {
+    .font-l {
         font-size: 25px;
       }
-      .dice{
-        margin-top : 10px;
+    .dice{
+        margin-top : 0px;
         width: 30px;
       }
-      .title-fail{
+    .title-fail{
         font-size: 18px;
         margin-top : 5px;
     }
     .tafelfu{
-        margin-top: 10px;
+        margin-top: 0px;
         font-size: 55px;
     }
-    .player{
-        min-width: 25% !important;
-    }
-
 }

@@ -10,6 +10,7 @@ body{
     font-family: 'Aclonica', sans-serif;
     box-sizing: border-box;
     color:white;
+    user-select: none;
 }
 .flex-row{
     display: flex;
